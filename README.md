@@ -84,6 +84,8 @@
             console.error("Please enter number to dial.");
             }
                 });
+                
+###### dial() is a custom and generic function made for both audio/video calling and DialByLine is called in it.
 
 ###### dtypes
 
