@@ -3,65 +3,67 @@
 
 ### jquery:
 
-        `$("#id_of_registration_button").on("click",function(e){
-        e.preventDefault();
-        try{
-        localDB.setItem("wssServer", $("#input_id_for_server").val());
-        localDB.setItem("WebSocketPort",$("#id_for_websocket_port_input").val());
-        localDB.setItem("ServerPath", $("#id_for_websocket path input").val());
-        localDB.setItem("profileName", $("#name").val());
-        localDB.setItem("SipDomain",$("#domain").val());
-        localDB.setItem("SipUsername", $("#username").val());
-        localDB.setItem("SipPassword", $("#password").val());
-        setTimeout(function(){
-            console.log("Resgiter request sent.");
-            CreateUserAgent(localDB.wssServer,localDB.SipDomain,localDB.WebSocketPort,localDB.ServerPath);
-        }, 3000);
-        }
-        catch(err){
-        
-            setTimeout(function(){
-            console.log("Resgiter request sent.");
-            CreateUserAgent(localDB.wssServer,localDB.SipDomain,localDB.WebSocketPort,localDB.SipUsername,localDB.SipPassword,localDB.ServerPath);
-        }, 3000);
-        }
-        }); `
+`$("#id_of_registration_button").on("click",function(e){
+e.preventDefault();
+try{
+localDB.setItem("wssServer", $("#input_id_for_server").val());
+localDB.setItem("WebSocketPort",$("#id_for_websocket_port_input").val());
+localDB.setItem("ServerPath", $("#id_for_websocket path input").val());
+localDB.setItem("profileName", $("#name").val());
+localDB.setItem("SipDomain",$("#domain").val());
+localDB.setItem("SipUsername", $("#username").val());
+localDB.setItem("SipPassword", $("#password").val());
+setTimeout(function(){
+    console.log("Resgiter request sent.");
+    CreateUserAgent(localDB.wssServer,localDB.SipDomain,localDB.WebSocketPort,localDB.ServerPath);
+}, 3000);
+}
+catch(err){
+
+    setTimeout(function(){
+    console.log("Resgiter request sent.");
+    CreateUserAgent(localDB.wssServer,localDB.SipDomain,localDB.WebSocketPort,localDB.SipUsername,localDB.SipPassword,localDB.ServerPath);
+}, 3000);
+}
+}); `
 
 ### Vanilla JS:
 
-        `document.getElementById("id_of_registration_button").addEventListener("click", function(e) {
-        e.preventDefault();
-        try{
-        localDB.setItem("wssServer", document.getElementById("server_input_id").value);
-        localDB.setItem("WebSocketPort", document.getElementById("websocket_port_input_id").value);
-        localDB.setItem("ServerPath", document.getElementById("websocket_path_input_id").value);
-        localDB.setItem("profileName", document.getElementById("profilename_input_id").value);
-        localDB.setItem("SipDomain", document.getElementById("sipdomain_input_id").value);
-        localDB.setItem("SipUsername", document.getElementById("username_input_id").value);
-        setTimeout(function(){
-            console.log("Resgiter request sent.");
-            CreateUserAgent(localDB.wssServer,localDB.SipDomain,localDB.WebSocketPort,localDB.ServerPath);
-        }, 3000);
-        }
-        catch(err){
-        
-            setTimeout(function(){
-            console.log("Resgiter request sent.");
-            CreateUserAgent(localDB.wssServer,localDB.SipDomain,localDB.WebSocketPort,localDB.SipUsername,localDB.SipPassword,localDB.ServerPath);
-        }, 3000);
-        }
-        }); `
+`document.getElementById("id_of_registration_button").addEventListener("click", function(e) {
+e.preventDefault();
+try{
+localDB.setItem("wssServer", document.getElementById("server_input_id").value);
+localDB.setItem("WebSocketPort", document.getElementById("websocket_port_input_id").value);
+localDB.setItem("ServerPath", document.getElementById("websocket_path_input_id").value);
+localDB.setItem("profileName", document.getElementById("profilename_input_id").value);
+localDB.setItem("SipDomain", document.getElementById("sipdomain_input_id").value);
+localDB.setItem("SipUsername", document.getElementById("username_input_id").value);
+setTimeout(function(){
+    console.log("Resgiter request sent.");
+    CreateUserAgent(localDB.wssServer,localDB.SipDomain,localDB.WebSocketPort,localDB.ServerPath);
+}, 3000);
+}
+catch(err){
+
+    setTimeout(function(){
+    console.log("Resgiter request sent.");
+    CreateUserAgent(localDB.wssServer,localDB.SipDomain,localDB.WebSocketPort,localDB.SipUsername,localDB.SipPassword,localDB.ServerPath);
+}, 3000);
+}
+}); `
 
 ##### dtypes:
 
-        wssServer : str
-        SipDomain : str
-        WebSocketPort : int
-        SipUsername : str
-        SipPassword : str
-        ServerPath : str
+wssServer : str
+SipDomain : str
+WebSocketPort : int
+SipUsername : str
+SipPassword : str
+ServerPath : str
 
-###### CreateUserAgent is a primary function for connecting browser phone with an asterisk server.It is accepting 6 primary arguments wssServer,SipDomain,WebSocketPort,SipUsername,SipPassword snd ServerPath respectively.Other variables being used in the function are defined at the top of phone.js.You can(additionally) add them as arguments and pass custom values for them.
+CreateUserAgent is a primary function for connecting browser phone with an asterisk server.
+It is accepting 6 primary arguments wssServer,SipDomain,WebSocketPort,SipUsername,SipPassword snd ServerPath respectively.
+Other variables being used in the function are defined at the top of phone.js.You can(additionally) add them as arguments and pass custom values for them.
 
 ##### Note: For development purposes https connection with relative SipDomain must be established to overcome registration related errors.Just visit the following url and allow traffic: https://SipDomain:WebSocketPort
 
@@ -69,21 +71,21 @@
 
 ###### Once, you get registered, next step is to call another user using your webphone.The following code snippet can be used to do so:
 
-        function dial([call_type,buddy,dest_no,your_extension]){
-        DialByLine(call_type,buddy,dest_no,your_extension);
-        }
-        $("#call").on('click',function(){
-            your_extension = 10 // may vary for different users depending on the asterisk side configurations.
-            PreloadAudioFiles();
-            dest_no = $("#output").val();
-            if(dest_no != "" && dest_no != null){
-                    last_call =['audio',"",dest_no,your_extension]
-                    dial(last_call);
-            }
-            else{
-            console.error("Please enter number to dial.");
-            }
-                });
+`function dial([call_type,buddy,dest_no,your_extension]){
+DialByLine(call_type,buddy,dest_no,your_extension);
+}
+$("#call").on('click',function(){
+    your_extension = 10 // may vary for different users depending on the asterisk side configurations.
+    PreloadAudioFiles();
+    dest_no = $("#output").val();
+    if(dest_no != "" && dest_no != null){
+            last_call =['audio',"",dest_no,your_extension]
+            dial(last_call);
+    }
+    else{
+    console.error("Please enter number to dial.");
+    }
+        });`
                 
 ###### dial() is a custom and generic function made for both audio/video calling and DialByLine is called in it.
 
