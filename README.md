@@ -101,7 +101,6 @@
 
 `    function AddLineHtml(lineObj, direction){
         var avatar = getPicture(lineObj.BuddyObj.identity);
-
         var html = "<table id=\"line-ui-"+ lineObj.LineNumber +"\" class=stream cellspacing=0 cellpadding=0>";
         html += "<tr><td class=\"streamSection highlightSection\" style=\"height: 85px;\">";
 
