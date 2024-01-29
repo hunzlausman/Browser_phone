@@ -101,7 +101,7 @@
 #### You can see the coments describing all the elements' functionalities respectively.You can add eventListener in jS to call these functions.
 #### For Example:
 
-   `// Call Answer UI
+   ```// Call Answer UI
     html += "<div id=\"line-"+ lineObj.LineNumber +"-AnswerCall\" style=\"display:none\">";
     html += "<div class=\"CallPictureUnderlay\" style=\"background-image: url('"+ avatar +"')\"></div>";
     html += "<div class=\"CallColorUnderlay\"></div>";
@@ -121,7 +121,7 @@
     html += "</div>"; // crm
     html += "</div>"; //.answerCall
     html += "</div>"; //.CallUi
-    html += "</div>"; //-AnswerCall`
+    html += "</div>"; //-AnswerCall```
 
 ##### The above code snippet is a part of AddLineHtml function and is briefly describing all the html elements in Call answering UI that can be modified but make sure not to change id,classes, and functions added on click event listener.
 
