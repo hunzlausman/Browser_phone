@@ -106,13 +106,13 @@
     html += "<div class=\"CallUi\">";
     html += "<div class=callingDisplayName>"+ lineObj.DisplayName +"</div>";
     html += "<div class=callingDisplayNumber>"+ lineObj.DisplayNumber +"</div>";
-    html += "<div id=\"line-"+ lineObj.LineNumber +"-in-avatar\" class=\"inCallAvatar\" style=\"background-image: url('"+ avatar +"')\"></div>";
+    html += "<div id=\"line-"+ lineObj.LineNumber +"-in-avatar\" class=\"inCallAvatar\" style=\"background-image: url('"+ avatar +"')\">        </div>";
     html += "<div class=answerCall>";
-    html += "<button onclick=\"AnswerAudioCall('"+ lineObj.LineNumber +"')\" class=answerButton><i class=\"fa fa-phone\"></i> "+ lang.answer_call +"</button> ";
+    html += "<button onclick=\"AnswerAudioCall('"+ lineObj.LineNumber +"')\" class=answerButton><i class=\"fa fa-phone\"></i> "+                 lang.answer_call +"</button> ";
     if(EnableVideoCalling == true) {
-        html += " <button id=\"line-"+ lineObj.LineNumber +"-answer-video\" onclick=\"AnswerVideoCall('"+ lineObj.LineNumber +"')\" class=answerButton><i class=\"fa fa-video-camera\"></i> "+ lang.answer_call_with_video +"</button> ";
+        html += " <button id=\"line-"+ lineObj.LineNumber +"-answer-video\" onclick=\"AnswerVideoCall('"+ lineObj.LineNumber +"')\"          class=answerButton><i class=\"fa fa-video-camera\"></i> "+ lang.answer_call_with_video +"</button> ";
     }
-    html += " <button onclick=\"RejectCall('"+ lineObj.LineNumber +"')\" class=rejectButton><i class=\"fa fa-phone\" style=\"transform: rotate(135deg);\"></i> "+ lang.reject_call +"</button> ";
+    html += " <button onclick=\"RejectCall('"+ lineObj.LineNumber +"')\" class=rejectButton><i class=\"fa fa-phone\" style=\"transform:         rotate(135deg);\"></i> "+ lang.reject_call +"</button> ";
     // CRM
     html += "<div id=\"line-"+ lineObj.LineNumber +"-answer-crm-space\">"
     // Use this DIV for anything really. Call your own CRM, and have the results display here
