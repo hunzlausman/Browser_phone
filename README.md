@@ -96,6 +96,8 @@
 
 ##### After that, go to AddLineHtml() method and modify html accordingly to edit the html elements for call progress section.You can append the final html to any part or section of your web page in that function accordingly.
 
+### Call Answer UI
+
 #### You can see the coments describing all the elements' functionalities respectively.You can add eventListener in jS to call these functions.
 #### For Example:
 
@@ -128,6 +130,50 @@
 `    html += "<button onclick=\"AnswerAudioCall('"+ lineObj.LineNumber +"')\" class=answerButton><i class=\"fa fa-phone\"></i> "+ lang.answer_call +"</button> ";`
 
 ##### This is the call answering button you can add any html element instead with class = answerButton and can answer the call using the following function \"AnswerAudioCall('"+ lineObj.LineNumber +"')\". In the above example, this function is called on click event of html button with class 'answerButton'.
+
+### Audio Call UI
+
+##### Similarly, here is the part of AddLineHtml() function describing the ui for an audio call progress. You can modify it the same way explained in the above section.
+
+`// Audio Call UI
+    html += "<div id=\"line-"+ lineObj.LineNumber +"-AudioCall\" style=\"height:100%; display:none\">";
+    html += "<div class=\"CallPictureUnderlay\" style=\"background-image: url('"+ avatar +"')\"></div>";
+    html += "<div class=\"CallColorUnderlay\"></div>";
+    html += "<div class=\"CallUi\">";
+    html += "<div class=callingDisplayName>"+ lineObj.DisplayName +"</div>";
+    html += "<div class=callingDisplayNumber>"+ lineObj.DisplayNumber +"</div>";
+    html += "<div id=\"line-"+ lineObj.LineNumber +"-session-avatar\" class=\"inCallAvatar\" style=\"background-image: url('"+ avatar +"')\"></div>";
+`
+
+### Mute/Unmute/Hold:
+
+##### Here is a code snippet again from AddLineHtml() function appending mute/unmute button to custom ui:
+
+`// Mute
+    html += "<button id=\"line-"+ lineObj.LineNumber +"-btn-Mute\" onclick=\"MuteSession('"+ lineObj.LineNumber +"')\" class=\"roundButtons dialButtons inCallButtons\" title=\""+ lang.mute +"\"><i class=\"fa fa-microphone-slash\"></i></button>";
+    html += "<button id=\"line-"+ lineObj.LineNumber +"-btn-Unmute\" onclick=\"UnmuteSession('"+ lineObj.LineNumber +"')\" class=\"roundButtons dialButtons inCallButtons\" title=\""+ lang.unmute +"\" style=\"color: red; display:none\"><i class=\"fa fa-microphone\"></i></button>";`
+
+##### Similarly, for hold button:
+
+`    // Hold
+    html += "<button id=\"line-"+ lineObj.LineNumber +"-btn-Hold\" onclick=\"holdSession('"+ lineObj.LineNumber +"')\" class=\"roundButtons dialButtons inCallButtons\"  title=\""+ lang.hold_call +"\"><i class=\"fa fa-pause-circle\"></i></button>";
+    html += "<button id=\"line-"+ lineObj.LineNumber +"-btn-Unhold\" onclick=\"unholdSession('"+ lineObj.LineNumber +"')\" class=\"roundButtons dialButtons inCallButtons\" title=\""+ lang.resume_call +"\" style=\"color: red; display:none\"><i class=\"fa fa-play-circle\"></i></button>";`
+
+### DTMF/ Call Transfer:
+
+ ##### DTMF has been an interactive way to get response as signals from user. Here is a code snippet explaining the dtmf ui.
+ `        // DTMF
+        html += "<button id=\"line-"+ lineObj.LineNumber +"-btn-ShowDtmf\" onclick=\"ShowDtmfMenu('"+ lineObj.LineNumber +"')\" class=\"roundButtons dialButtons inCallButtons\" title=\""+ lang.send_dtmf +"\"><i class=\"fa fa-keyboard-o\"></i></button>";`
+
+##### Similarly for transfering call to another agent/user , transfer button is used:
+
+`        // Transfer (Audio Only)
+        if(EnableTransfer){
+            html += "<button id=\"line-"+ lineObj.LineNumber +"-btn-Transfer\" onclick=\"StartTransferSession('"+ lineObj.LineNumber +"')\" class=\"roundButtons dialButtons inCallButtons\" title=\""+ lang.transfer_call +"\"><i class=\"fa fa-reply\" style=\"transform: rotateY(180deg)\"></i></button>";
+            html += "<button id=\"line-"+ lineObj.LineNumber+"-btn-CancelTransfer\" onclick=\"CancelTransferSession('"+ lineObj.LineNumber +"')\" class=\"roundButtons dialButtons inCallButtons\" title=\""+ lang.cancel_transfer +"\" style=\"color: red; display:none\"><i class=\"fa fa-reply\" style=\"transform: rotateY(180deg)\"></i></button>";
+        }
+    }`
+
 
 ##### Finally, after modifying the ui as per usage, you can append all the html to your desired html element at the end of function like this:
 
