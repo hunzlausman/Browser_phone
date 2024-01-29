@@ -1,4 +1,4 @@
-
+# Asterisk Web Phone Documentation:
 ## Start by creating user agent to register your web phone with asterisk server:
 
 ### jquery:
