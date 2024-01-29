@@ -3,7 +3,7 @@
 
 ### jquery:
 
-`$("#id_of_registration_button").on("click",function(e){
+```$("#id_of_registration_button").on("click",function(e){
 e.preventDefault();
 try{
 localDB.setItem("wssServer", $("#input_id_for_server").val());
@@ -25,7 +25,7 @@ catch(err){
     CreateUserAgent(localDB.wssServer,localDB.SipDomain,localDB.WebSocketPort,localDB.SipUsername,localDB.SipPassword,localDB.ServerPath);
 }, 3000);
 }
-}); `
+});```
 
 ### Vanilla JS:
 
