@@ -7,17 +7,17 @@
 $("#id_of_registration_button").on("click",function(e){
 e.preventDefault();
 try{
-localDB.setItem("wssServer", $("#input_id_for_server").val());
-localDB.setItem("WebSocketPort",$("#id_for_websocket_port_input").val());
-localDB.setItem("ServerPath", $("#id_for_websocket path input").val());
-localDB.setItem("profileName", $("#name").val());
-localDB.setItem("SipDomain",$("#domain").val());
-localDB.setItem("SipUsername", $("#username").val());
-localDB.setItem("SipPassword", $("#password").val());
-setTimeout(function(){
-    console.log("Resgiter request sent.");
-    CreateUserAgent(localDB.wssServer,localDB.SipDomain,localDB.WebSocketPort,localDB.ServerPath);
-}, 3000);
+    localDB.setItem("wssServer", $("#input_id_for_server").val());
+    localDB.setItem("WebSocketPort",$("#id_for_websocket_port_input").val());
+    localDB.setItem("ServerPath", $("#id_for_websocket path input").val());
+    localDB.setItem("profileName", $("#name").val());
+    localDB.setItem("SipDomain",$("#domain").val());
+    localDB.setItem("SipUsername", $("#username").val());
+    localDB.setItem("SipPassword", $("#password").val());
+    setTimeout(function(){
+        console.log("Resgiter request sent.");
+        CreateUserAgent(localDB.wssServer,localDB.SipDomain,localDB.WebSocketPort,localDB.ServerPath);
+    }, 3000);
 }
 catch(err){
 
@@ -35,16 +35,16 @@ catch(err){
 document.getElementById("id_of_registration_button").addEventListener("click", function(e) {
 e.preventDefault();
 try{
-localDB.setItem("wssServer", document.getElementById("server_input_id").value);
-localDB.setItem("WebSocketPort", document.getElementById("websocket_port_input_id").value);
-localDB.setItem("ServerPath", document.getElementById("websocket_path_input_id").value);
-localDB.setItem("profileName", document.getElementById("profilename_input_id").value);
-localDB.setItem("SipDomain", document.getElementById("sipdomain_input_id").value);
-localDB.setItem("SipUsername", document.getElementById("username_input_id").value);
-setTimeout(function(){
-    console.log("Resgiter request sent.");
-    CreateUserAgent(localDB.wssServer,localDB.SipDomain,localDB.WebSocketPort,localDB.ServerPath);
-}, 3000);
+    localDB.setItem("wssServer", document.getElementById("server_input_id").value);
+    localDB.setItem("WebSocketPort", document.getElementById("websocket_port_input_id").value);
+    localDB.setItem("ServerPath", document.getElementById("websocket_path_input_id").value);
+    localDB.setItem("profileName", document.getElementById("profilename_input_id").value);
+    localDB.setItem("SipDomain", document.getElementById("sipdomain_input_id").value);
+    localDB.setItem("SipUsername", document.getElementById("username_input_id").value);
+    setTimeout(function(){
+        console.log("Resgiter request sent.");
+        CreateUserAgent(localDB.wssServer,localDB.SipDomain,localDB.WebSocketPort,localDB.ServerPath);
+    }, 3000);
 }
 catch(err){
 
@@ -66,7 +66,7 @@ SipPassword : str
 ServerPath : str
 ```
 CreateUserAgent is a primary function for connecting browser phone with an asterisk server.
-It is accepting 6 primary arguments wssServer,SipDomain,WebSocketPort,SipUsername,SipPassword snd ServerPath respectively.
+It is accepting 6 primary arguments `wssServer`, `SipDomain`, `WebSocketPort`, `SipUsername`, `SipPassword` snd `ServerPath` respectively.
 Other variables being used in the function are defined at the top of phone.js.You can(additionally) add them as arguments and pass custom values for them.
 
 ##### Note: For development purposes https connection with relative SipDomain must be established to overcome registration related errors.Just visit the following url and allow traffic: https://SipDomain:WebSocketPort
