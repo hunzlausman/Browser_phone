@@ -61,7 +61,7 @@
         SipPassword : str
         ServerPath : str
 
-###### CreateUserAgent is a primary function for connecting browser phone with an asterisk server.It is accepting 6 primary arguments wssServer,SipDomain,WebSocketPort,SipUsername,SipPassword snd ServerPath respectively.Oyher variables being used in the function are defined at the top of phone.js.You can(additionally) add them as arguments and pass custom values for them.
+###### CreateUserAgent is a primary function for connecting browser phone with an asterisk server.It is accepting 6 primary arguments wssServer,SipDomain,WebSocketPort,SipUsername,SipPassword snd ServerPath respectively.Other variables being used in the function are defined at the top of phone.js.You can(additionally) add them as arguments and pass custom values for them.
 
 ##### Note: For development purposes https connection with relative SipDomain must be established to overcome registration related errors.Just visit the following url and allow traffic: https://SipDomain:WebSocketPort
 
@@ -92,7 +92,7 @@
         dest_no : int
         your_extension : int
 
-##### After that, go to AddLineHtml method and odify html accordingly to edit the htl elements for call progress section.You can append the final html to any part or section of your web page in that function accordingly.
+##### After that, go to AddLineHtml method and modify html accordingly to edit the htl elements for call progress section.You can append the final html to any part or section of your web page in that function accordingly.
 
 ### Here is the code sample of AddLineHtml function:
 
@@ -363,7 +363,7 @@
 
 
 
-#### You can se the coments describing all the elements' functionalities respectively.You can add eventListener in jS to call these functions.
+#### You can see the coments describing all the elements' functionalities respectively.You can add eventListener in jS to call these functions.
 #### For Example:
 
    """// Call Answer UI
