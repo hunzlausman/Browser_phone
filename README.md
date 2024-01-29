@@ -94,7 +94,7 @@
         dest_no : int
         your_extension : int
 
-##### After that, go to AddLineHtml() method and modify html accordingly to edit the htl elements for call progress section.You can append the final html to any part or section of your web page in that function accordingly.
+##### After that, go to AddLineHtml() method and modify html accordingly to edit the html elements for call progress section.You can append the final html to any part or section of your web page in that function accordingly.
 
 #### You can see the coments describing all the elements' functionalities respectively.You can add eventListener in jS to call these functions.
 #### For Example:
@@ -121,4 +121,16 @@
     html += "</div>"; //.CallUi
     html += "</div>"; //-AnswerCall`
 
-##### The above code snippet is a part if AddLineHtml function and is briefly describing all the html elements in Call answering UI that can be modified but make sure not to change id,classes, and functions added on click event listener.
+##### The above code snippet is a part of AddLineHtml function and is briefly describing all the html elements in Call answering UI that can be modified but make sure not to change id,classes, and functions added on click event listener.
+
+#### Now, in the case another user calls you. You can see in the above code snippet the following line;
+
+`    html += "<button onclick=\"AnswerAudioCall('"+ lineObj.LineNumber +"')\" class=answerButton><i class=\"fa fa-phone\"></i> "+ lang.answer_call +"</button> ";`
+
+##### This is the call answering button you can add any html element instead with class = answerButton and can answer the call using the following function \"AnswerAudioCall('"+ lineObj.LineNumber +"')\". In the above example, this function is called on click event of html button with class 'answerButton'.
+
+##### Finally, after modifying the ui as per usage, you can append all the html to your desired html element at the end of function like this:
+
+   ` document.getElementByID("element_id").innerHTML = html;`
+
+##### On appending the following html you can see and modify all the elements defined in AddLineHtml() function.
